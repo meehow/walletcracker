@@ -15,11 +15,11 @@ func main() {
 	file, err := os.Open(fName)
 	if err != nil {
 		log.Printf("%v: crawling", err)
-		addresses = crawl()
 		file, err = os.Create(fName)
 		if err != nil {
 			log.Fatalln(err)
 		}
+		addresses = crawl()
 		encoder := json.NewEncoder(file)
 		encoder.SetIndent("", "\t")
 		err = encoder.Encode(addresses)
